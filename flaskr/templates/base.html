@@ -3,23 +3,13 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
   <h1><a href="{{ url_for('index') }}">Flaskr</a></h1>
-  <ul>
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-HAHA A MALICIOUS ACTOR HAS GAINED ACCESS TO TOP SECRET CODE 
-        
-        
-YOU WILL NEVER GET MEEE
-    {% endif %}
-  </ul>
-</nav>
-<section class="content">
-  <header>
-    WHOOPEEEE
+YOU DIDNT NEED THAT CODE ANYWAY
     {% block header %}{% endblock %}
   </header>
+IF DUMB
+  TRUE
+else 
+  HES LYING
   {% for message in get_fREETTEEEed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
