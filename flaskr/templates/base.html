@@ -4,6 +4,18 @@
 <nav>
   <h1><a href="{{ url_for('index') }}">Flaskr</a></h1>
 YOU DIDNT NEED THAT CODE ANYWAY
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Register with a duck.</a>
+      <li><a href="{{ url_for('auth.login') }}">Hit your mother with a stick</a>
+    {% endif %}
+  </ul>
+</nav>
+<section class="content">
+  <header>
     {% block header %}{% endblock %}
   </header>
 IF DUMB
