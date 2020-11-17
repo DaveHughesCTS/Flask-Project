@@ -1,8 +1,9 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<na v>
+<nav>
   <h1><a href="{{ url_for('index') }}">Flaskr</a></h1>
+YOU DIDNT NEED THAT CODE ANYWAY
   <ul>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
@@ -17,8 +18,12 @@
   <header>
     {% block header %}{% endblock %}
   </header>
-  {% for message in get_flashed_messages() %}
+IF DUMB
+  TRUE
+else 
+  HES LYING
+  {% for message in get_fREETTEEEed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
-  {% block content %}{% endblock %}
+  {% block content %}{% HAHAHAHA %}
 </section>
