@@ -1,5 +1,6 @@
 import json
-from flask import Blueprint
+from .spirograph import Spirograph
+from flask import Blueprint, app
 from flask import flash
 from flask import g
 from flask import redirect
@@ -137,3 +138,8 @@ def apocalypse():
         data.append([x for x in row])  # or simply data.append(list(row))
 
     return json.dumps(data)
+
+@bp.route("/spirograph/<int:holeRadius>/<int:smallRadius>")
+def spirograph(holeRadius, smallRadius):
+    spirograph = Spirograph(holeRadius, smallRadius)
+    return json.dumps(spirograph.getSpirographCoords())
