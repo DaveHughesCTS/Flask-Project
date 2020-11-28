@@ -1,7 +1,7 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<na v>
+<nav>
   <h1><a href="{{ url_for('index') }}">Flaskr</a></h1>
   <ul>
     {% if g.user %}
@@ -9,7 +9,7 @@
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+      <li><a href="{{ url_for('auth.login') }}">Hit your mother with a stick</a>
     {% endif %}
   </ul>
 </nav>
