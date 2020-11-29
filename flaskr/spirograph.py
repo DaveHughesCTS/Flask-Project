@@ -1,4 +1,18 @@
 import math
+import json
+
+from flask import Blueprint
+from flask import render_template
+
+bp = Blueprint("spirograph", __name__, url_prefix="/spirograph")
+
+@bp.route("/")
+def spirograph():
+    return render_template("spirograph/spirograph.html")
+
+@bp.route("/getCoords/<int:holeRadius>/<int:smallRadius>")
+def getSpirographCoords(holeRadius, smallRadius):
+    return json.dumps(Spirograph(holeRadius, smallRadius).getSpirographCoords())
 
 class Spirograph:
 
