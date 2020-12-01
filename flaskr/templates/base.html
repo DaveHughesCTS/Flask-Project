@@ -6,6 +6,7 @@
   <ul>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
+	  <li><a color="red" href="{{ url_for('spirograph.spirograph') }}">Spirographometerize!</a>
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
     {% else %}
       <li><a href="{{ url_for('auth.register') }}">Register</a>

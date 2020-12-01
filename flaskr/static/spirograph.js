@@ -1,4 +1,5 @@
-var results;
+var results = [];
+
 function makeRequest (method, url, data) {
   return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
@@ -27,39 +28,22 @@ function makeRequest (method, url, data) {
   });
 }
 
-//GET example
-makeRequest('GET', "/spirograph/getCoords/1235/994").then(function(data){
-              results=JSON.parse(data);
+makeRequest('GET', "/spirograph/getCoords/45/90").then(function(data){
+	results=JSON.parse(data);
 });
 
-var canvas = document.getElementById("spirographCanvas");
-var canvasWidth = canvas.width;
-var canvasHeight = canvas.height;
-var ctx = canvas.getContext("2d");
-var canvasData = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
-
-// That's how you define the value of a pixel //
-function drawPixel (x, y, r, g, b, a) {
-    var index = (x + y * canvasWidth) * 4;
-
-    canvasData.data[index + 0] = r;
-    canvasData.data[index + 1] = g;
-    canvasData.data[index + 2] = b;
-    canvasData.data[index + 3] = a;
-}
-
-// That's how you update the canvas, so that your //
-// modification are taken in consideration //
-function updateCanvas() {
-    ctx.putImageData(canvasData, 0, 0);
-}
+const canvas = document.querySelector('#spirographCanvas');
+const width = canvas.width = window.innerWidth;
+const height = canvas.height = window.innerHeight;
+const ctx = canvas.getContext('2d');
 
 function drawSpirograph() {
-	var i;
-	for (i = 0; i < results.length; i++) {
-		var point = results[i]
-		drawPixel(point[0], point[1], 255, 0, 0, 255);
-		updateCanvas();
-	}  
+	ctx.fillStyle = 'rgb(0, 0, 0)';
+	ctx.fillRect(0, 0, width, height);
+	
+	for (var i = 0; i < results.length; i++) {
+		ctx.fillStyle = 'rgb(255, 0, 0)';
+		ctx.fillRect(results[i][0], results[i][1], 4, 4);
+	}
 }
-  
+
