@@ -1,4 +1,22 @@
 <!doctype html>
-<canvas id="spirographCanvas"></canvas>
+<html>
+<head>
+	<style>
+	  body {
+		margin: 0;
+		overflow: hidden;
+	  }
+	</style
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+	<button onclick="drawSpirograph()">Click me</button>
+	
+</body>
+
+<canvas width="2000" height="2000"id="spirographCanvas"></canvas>
+
 <script src="{{ url_for('static', filename='spirograph.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</html>
